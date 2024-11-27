@@ -1,16 +1,25 @@
 import { Component, OnInit } from '@angular/core';
+import { RespuestasService } from '../../services/respuestas.service';
 
 @Component({
-  selector: 'app-respuestas', // Nombre del selector del componente
-  templateUrl: './respuestas.component.html', // Ruta de la plantilla HTML
-  styleUrls: ['./respuestas.component.css'] // Ruta de los estilos CSS
+  selector: 'app-respuestas',
+  templateUrl: './respuestas.component.html',
+  styleUrls: ['./respuestas.component.css']
 })
 export class RespuestasComponent implements OnInit {
-  respuestas: any[] = []; // Lista de respuestas
+  respuestas: any[] = []; // Lista para almacenar las respuestas
 
-  constructor() {}
+  constructor(private respuestasService: RespuestasService) {}
 
   ngOnInit(): void {
-    // Aquí se puede cargar lógica inicial del componente
+    // Cargar las respuestas al iniciar el componente
+    this.respuestasService.getRespuestas().subscribe(
+      (data) => {
+        this.respuestas = data;
+      },
+      (error) => {
+        console.error('Error al cargar respuestas:', error);
+      }
+    );
   }
 }

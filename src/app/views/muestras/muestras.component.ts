@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MuestrasService } from '../../services/muestras.service';
 
 @Component({
   selector: 'app-muestras',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./muestras.component.css']
 })
 export class MuestrasComponent implements OnInit {
+  muestras: any[] = []; // Lista para almacenar las respuestas
 
-  constructor() { }
+  constructor(private muestrasService: MuestrasService) {}
 
   ngOnInit(): void {
+    // Cargar las respuestas al iniciar el componente
+    this.muestrasService.getMuestras().subscribe(
+      (data) => {
+        this.muestras = data;
+      },
+      (error) => {
+        console.error('Error al cargar respuestas:', error);
+      }
+    );
   }
-
 }

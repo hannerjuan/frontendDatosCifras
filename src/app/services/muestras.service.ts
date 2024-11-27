@@ -5,13 +5,13 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class RespuestasService {
-  private apiUrl = 'http://localhost:3000/respuestas'; // URL del backend
+export class MuestrasService {
+  private apiUrl = 'http://localhost:3000/muestras'; // URL del backend
 
   constructor(private http: HttpClient) {}
 
   // Método para obtener todas las respuestas
-  getRespuestas(): Observable<any[]> {
+  getMuestras(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);
   }
 }

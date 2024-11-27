@@ -1,6 +1,8 @@
-<h2>Listado de Muestras</h2>
-<ul>
-  <li *ngFor="let muestra of muestras">
-    {{ muestra.fldmuestra_id }} - {{ muestra.fldmuestra_estado }}
-  </li>
-</ul>
+<div class="muestras">
+    <h2>Lista de muestras</h2>
+    <ul>
+      <li *ngFor="let muestra of muestras">
+        {{muestra.fldmuestra_fecha}} - {{muestra.fldmuestra_usuario}}
+      </li>
+    </ul>
+  </div>
