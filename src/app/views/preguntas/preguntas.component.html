@@ -1,1 +1,26 @@
-<p>preguntas works!</p>
+<!-- <div class="preguntas-container">
+    <h1>Preguntas</h1>
+    <button (click)="loadPreguntas()">Cargar Preguntas</button>
+    <ul *ngIf="preguntas.length > 0; else noPreguntas">
+      <li *ngFor="let pregunta of preguntas">
+        <h3>{{ pregunta.texto }}</h3>
+        <p>ID: {{ pregunta.id }}</p>
+      </li>
+    </ul>
+    <ng-template #noPreguntas>
+      <p>No hay preguntas disponibles.</p>
+    </ng-template>
+  </div> -->
+<div class="preguntas-container">
+  <h1>Preguntas</h1>
+  <button (click)="loadPreguntas()">Cargar Preguntas</button>
+  <ul *ngIf="preguntas.length > 0; else noPreguntas">
+    <li *ngFor="let pregunta of preguntas">
+      <h3>{{ pregunta.fldpregunta_nombre }}</h3>
+      <p>ID: {{ pregunta.fldpregunta_id }}</p>
+    </li>
+  </ul>
+  <ng-template #noPreguntas>
+    <p>No hay preguntas disponibles.</p>
+  </ng-template>
+</div>

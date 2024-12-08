@@ -1,1 +1,14 @@
-<p>encuestas works!</p>
+<div class="encuestas-container">
+    <h1>Encuestas</h1>
+    <button (click)="loadEncuestas()">Cargar Encuestas</button>
+    <ul *ngIf="encuestas.length > 0; else noEncuestas">
+      <li *ngFor="let encuesta of encuestas">
+        <h3>{{ encuesta.fldencuesta_nombre }}</h3>
+        <p>{{ encuesta.fldencuesta_estado }}</p>
+      </li>
+    </ul>
+    <ng-template #noEncuestas>
+      <p>No hay encuestas disponibles.</p>
+    </ng-template>
+  </div>
+  
