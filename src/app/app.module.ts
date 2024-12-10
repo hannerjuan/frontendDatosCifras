@@ -14,7 +14,11 @@ import { PaginasComponent } from './views/paginas/paginas.component';
 import { TemasComponent } from './views/temas/temas.component';
 import { RespuestasComponent } from './views/respuestas/respuestas.component';
 import { PreguntasComponent } from './views/preguntas/preguntas.component';
-import { AppRoutingModule } from './app-routing.module'; // Importación del módulo de rutas
+import { AppRoutingModule } from './app-routing.module';
+import { LoginComponent } from './views/login/login.component'; // Importación del módulo de rutas
+import {FormsModule} from '@angular/forms';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './auth.interceptor';
 
 
 
@@ -30,7 +34,8 @@ import { AppRoutingModule } from './app-routing.module'; // Importación del mó
     PaginasComponent,
     TemasComponent,
     RespuestasComponent,
-    PreguntasComponent
+    PreguntasComponent,
+    LoginComponent
   ],
   imports: [
     
@@ -38,9 +43,11 @@ import { AppRoutingModule } from './app-routing.module'; // Importación del mó
     CommonModule,
     HttpClientModule, // Importar el módulo HTTP
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
     // Otros módulos
   ],
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

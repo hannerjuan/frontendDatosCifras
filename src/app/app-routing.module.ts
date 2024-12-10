@@ -8,17 +8,22 @@ import { TemasComponent } from './views/temas/temas.component';
 import { MuestrasComponent } from './views/muestras/muestras.component';
 import { RespuestasComponent } from './views/respuestas/respuestas.component';
 import { PreguntasComponent } from './views/preguntas/preguntas.component';
+import { LoginComponent } from './views/login/login.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent }, // Ruta principal
-  { path: 'usuarios', component: UsuariosComponent },
-  { path: 'encuestas', component: EncuestasComponent },
-  { path: 'paginas', component: PaginasComponent },
-  { path: 'temas', component: TemasComponent },
-  { path: 'muestras', component: MuestrasComponent },
-  { path: 'respuestas', component: RespuestasComponent },
-  { path: 'preguntas', component: PreguntasComponent },
-  { path: '**', redirectTo: '' } // Ruta comodín que redirige al home
+  { path: 'login', component: LoginComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' }, // Ruta comodín que redirige al home
+  { path: '', component: HomeComponent}, // Ruta principal
+  { path: 'usuarios', component: UsuariosComponent, canActivate: [AuthGuard] },
+  { path: 'encuestas', component: EncuestasComponent, canActivate: [AuthGuard] },
+  { path: 'paginas', component: PaginasComponent, canActivate: [AuthGuard] },
+  { path: 'temas', component: TemasComponent, canActivate: [AuthGuard] },
+  { path: 'muestras', component: MuestrasComponent, canActivate: [AuthGuard] },
+  { path: 'respuestas', component: RespuestasComponent, canActivate: [AuthGuard] },
+  { path: 'preguntas', component: PreguntasComponent, canActivate: [AuthGuard] },
+  { path: '**', redirectTo: '/login' },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
