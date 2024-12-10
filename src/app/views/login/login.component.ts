@@ -58,7 +58,7 @@ export class LoginComponent {
         if (response.token) {
           this.authService.saveToken(response.token);
 
-          this.router.navigate(['/home']).then((navigated) => {
+          this.router.navigate(['/']).then((navigated) => {
             console.log('¿Navegación exitosa?', navigated);
           }).catch((error) => {
             console.error('Error en la navegación:', error);

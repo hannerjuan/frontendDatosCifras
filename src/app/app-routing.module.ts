@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'respuestas', component: RespuestasComponent, canActivate: [AuthGuard] },
   { path: 'preguntas', component: PreguntasComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '/login' },
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] }
+  { path: 'home', component: HomeComponent}
 ];
 
 @NgModule({

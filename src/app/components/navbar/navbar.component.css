@@ -61,3 +61,27 @@
   height: 2px;
   background-color: #00bcd4;
 }
+
+/* Estilo general para el botón de logout */
+.logout-button {
+  background-color: #ff5252; /* Rojo diferenciable */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Efecto hover */
+.logout-button:hover {
+  background-color: #ff1744; /* Color más intenso */
+  transform: scale(1.05); /* Pequeña animación al pasar el mouse */
+}
+
+/* Efecto activo al hacer clic */
+.logout-button:active {
+  background-color: #d50000; /* Más oscuro */
+  transform: scale(1); /* Restaura el tamaño */
+}

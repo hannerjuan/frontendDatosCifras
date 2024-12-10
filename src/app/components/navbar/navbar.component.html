@@ -5,13 +5,17 @@
     </div>
     <ul class="navbar-links">
       <li><a routerLink="/" routerLinkActive="active">Home</a></li>
-      <li><a routerLink="/usuarios" routerLinkActive="active">Usuarios</a></li>
-      <li><a routerLink="/encuestas" routerLinkActive="active">Encuestas</a></li>
-      <li><a routerLink="/paginas" routerLinkActive="active">Páginas</a></li>
-      <li><a routerLink="/temas" routerLinkActive="active">Temas</a></li>
-      <li><a routerLink="/muestras" routerLinkActive="active">Muestras</a></li>
-      <li><a routerLink="/respuestas" routerLinkActive="active">Respuestas</a></li>
-      <li><a routerLink="/preguntas" routerLinkActive="active">Preguntas</a></li>
+      <li *ngIf="isLoggedIn"><a routerLink="/usuarios" routerLinkActive="active">Usuarios</a></li>
+      <li *ngIf="isLoggedIn"><a routerLink="/encuestas" routerLinkActive="active">Encuestas</a></li>
+      <li *ngIf="isLoggedIn"><a routerLink="/paginas" routerLinkActive="active">Páginas</a></li>
+      <li *ngIf="isLoggedIn"><a routerLink="/temas" routerLinkActive="active">Temas</a></li>
+      <li *ngIf="isLoggedIn"><a routerLink="/muestras" routerLinkActive="active">Muestras</a></li>
+      <li *ngIf="isLoggedIn"><a routerLink="/respuestas" routerLinkActive="active">Respuestas</a></li>
+      <li *ngIf="isLoggedIn"><a routerLink="/preguntas" routerLinkActive="active">Preguntas</a></li>
+      <li *ngIf="isLoggedIn">
+        <!-- Botón estilizado para cerrar sesión -->
+        <button class="logout-button" (click)="logout()">Cerrar sesión</button>
+      </li>
     </ul>
   </div>
 </nav>
